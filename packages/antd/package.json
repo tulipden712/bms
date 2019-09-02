@@ -1,6 +1,6 @@
 {
   "name": "@bms/antd",
-  "version": "0.1.2",
+  "version": "0.1.1",
   "description": "extends antd component",
   "main": "index.js",
   "scripts": {
