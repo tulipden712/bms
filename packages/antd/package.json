@@ -1,5 +1,5 @@
 {
-  "name": "@bms/antd",
+  "name": "@bmstravel/antd",
   "version": "0.1.8",
   "publishConfig": {
     "access": "public"
@@ -22,5 +22,5 @@
   "dependencies": {
     "antd": "^3.22.2"
   },
-  "gitHead": "56eb150bceb3dc988337eaab2cfbe695d7a95718"
+  "gitHead": "2ee5ae425fc4ca23ba2ed0d386b3ddecacdb4298"
 }
