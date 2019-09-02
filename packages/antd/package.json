@@ -1,6 +1,9 @@
 {
   "name": "@bms/antd",
   "version": "0.1.5",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "extends antd component",
   "main": "index.js",
   "scripts": {
@@ -19,5 +22,5 @@
   "dependencies": {
     "antd": "^3.22.2"
   },
-  "gitHead": "9ed1eea59c0b373dfcf05a8b37a3664a15b0aa68"
+  "gitHead": "2a65d8ebdbda1623db4f4e92c2adb61eefd7e96b"
 }
