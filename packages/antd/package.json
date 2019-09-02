@@ -1,0 +1,22 @@
+{
+  "name": "@bms/antd",
+  "version": "1.0.0",
+  "description": "extends antd component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "antd",
+    "bms"
+  ],
+  "author": "phongnv",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "dependencies": {
+    "antd": "^3.22.2"
+  }
+}
