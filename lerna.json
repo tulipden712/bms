@@ -4,8 +4,8 @@
   "packages": [
     "packages/*"
   ],
-  "version": "0.1.7",
-  "commands": {
+  "version": "0.1.8",
+  "command": {
     "publish": {
       "verifyAccess": false
     }
