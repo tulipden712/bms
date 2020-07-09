@@ -22,7 +22,7 @@
   "dependencies": {
     "antd": "^3.22.2"
   },
-  "gitHead": "cbdf24b470dae8813aa1e3061a628593b11967af",
+  "gitHead": "0c0d59cba46de94dea3d1675e56c603eeedb413f",
   "devDependencies": {
     "eslint-plugin-eslint-comments": "^3.2.0"
   }
