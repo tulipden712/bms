@@ -18,7 +18,6 @@
     "lint-eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./**/src ./tests && npm run lint:style",
     "lint:style": "stylelint --fix  \"src/**/*.less\"  --syntax less",
-    "prepublishOnly": "npm run test && npm run build && np --no-cleanup --yolo --no-publish",
     "prettier": "prettier -c --write \"**/*\"",
     "site": "dumi build && gh-pages -d ./dist",
     "start": "dumi dev",
@@ -93,5 +92,5 @@
     "name": "phongnv86",
     "email": "phongnguyenvan86@gmail.com"
   },
-  "gitHead": "2e6fd1d2fefe9cfb4327d0104e692296511c3ab0"
+  "gitHead": "cbdf24b470dae8813aa1e3061a628593b11967af"
 }
