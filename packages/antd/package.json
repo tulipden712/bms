@@ -22,5 +22,8 @@
   "dependencies": {
     "antd": "^3.22.2"
   },
-  "gitHead": "2ee5ae425fc4ca23ba2ed0d386b3ddecacdb4298"
+  "gitHead": "2e6fd1d2fefe9cfb4327d0104e692296511c3ab0",
+  "devDependencies": {
+    "eslint-plugin-eslint-comments": "^3.2.0"
+  }
 }

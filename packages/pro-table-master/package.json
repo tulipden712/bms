@@ -68,6 +68,7 @@
     "enzyme": "^3.10.0",
     "enzyme-to-json": "^3.4.3",
     "eslint": "7.3.1",
+    "eslint-plugin-eslint-comments": "^3.2.0",
     "husky": "^4.2.5",
     "jsdom-global": "^3.0.2",
     "less-loader": "^6.0.0",
@@ -91,5 +92,6 @@
   "authors": {
     "name": "phongnv86",
     "email": "phongnguyenvan86@gmail.com"
-  }
+  },
+  "gitHead": "2e6fd1d2fefe9cfb4327d0104e692296511c3ab0"
 }
