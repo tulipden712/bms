@@ -32,14 +32,14 @@
     "lerna": "^3.16.4",
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2",
-    "father": "^2.29.3"
+    "father": "^2.29.3",
+    "typescript": "^3.3.3"
   },
   "workspaces": [
     "packages/*"
   ],
   "dependencies": {
     "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "typescript": "^3.3.3"
+    "react-dom": "^16.9.0"
   }
 }

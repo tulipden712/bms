@@ -24,6 +24,7 @@
   },
   "gitHead": "125911c5846c4c15a47c90edf39b906ff331e5d2",
   "devDependencies": {
-    "eslint-plugin-eslint-comments": "^3.2.0"
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "typescript": "3.3.3"
   }
 }
