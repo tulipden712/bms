@@ -18,6 +18,7 @@ module.exports = {
   mode: 'production',
   resolve: {
     extensions: ['.ts', '.tsx', '.json', '.css', '.js', '.less'],
+    // modules: ["node_modules"],
   },
   optimization: {
     minimize: true,
@@ -123,9 +124,11 @@ module.exports = {
       react: 'React',
       'react-dom': 'ReactDOM',
       antd: 'antd',
+      // '@bmstravel/pro-layout': "@bmstravel/pro-layout",
       moment: 'moment',
     },
-    /^antd/,
+    /^antd/, 
+    // /^@bmstravel\/pro-layout/
   ],
   plugins: [
     new MiniCssExtractPlugin({

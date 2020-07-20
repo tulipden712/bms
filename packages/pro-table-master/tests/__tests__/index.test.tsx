@@ -16,6 +16,7 @@ describe('BasicTable', () => {
         pagination={{
           defaultCurrent: 10,
         }}
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         toolBarRender={(action) => [
           <Input.Search
             style={{
@@ -91,6 +92,23 @@ describe('BasicTable', () => {
           },
         ]}
         request={request}
+        rowKey="key"
+      />,
+    );
+    expect(html).toMatchSnapshot();
+  });
+
+  it('🎏 render advanced form', () => {
+    const html = render(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        type="advancedform"
         rowKey="key"
       />,
     );

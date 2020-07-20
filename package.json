@@ -6,6 +6,7 @@
   },
   "scripts": {
     "build": "lerna run build",
+    "start": "lerna run start",
     "lint": "eslint --ext .js,.ts,.tsx \"./packages/**/src/**/*.{js,ts,tsx}\"",
     "prettier": "prettier --config ./.prettierrc.js --write --list-different \"packages/*/src/**/*.{js,json,ts,tsx,css,md}\""
   },
@@ -28,7 +29,7 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
     "husky": "^2.3.0",
-    "jest": "^23.6.0",
+    "jest": "^24.9.0",
     "lerna": "^3.16.4",
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2",

@@ -53,9 +53,9 @@ const msMYIntl = createIntl('ms_MY', msMY);
 const zhTWIntl = createIntl('zh_TW', zhTW);
 
 const intlMap = {
-  'zh-CN': zhCNIntl,
-  'en-US': enUSIntl,
   'vi-VN': viVNIntl,
+  'en-US': enUSIntl,
+  'zh-CN': zhCNIntl,
   'it-IT': itITIntl,
   'js-JP': jaJPIntl,
   'es-ES': esESIntl,
@@ -66,7 +66,7 @@ const intlMap = {
 
 export { enUSIntl, zhCNIntl, viVNIntl, itITIntl, jaJPIntl, esESIntl, ruRUIntl, msMYIntl, zhTWIntl };
 
-const IntlContext = React.createContext<IntlType>(intlMap[getLang() || ''] || zhCNIntl);
+const IntlContext = React.createContext<IntlType>(intlMap[getLang() || ''] || viVNIntl);
 
 const { Consumer: IntlConsumer, Provider: IntlProvider } = IntlContext;
 
