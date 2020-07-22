@@ -621,7 +621,7 @@ const ProTable = <T extends {}, U extends object>(
     ...rest
   } = props;
 
-  console.log('Table -> rest', rest);
+  // console.log('Table -> rest', rest);
   const [selectedRowKeys, setSelectedRowKeys] = useMergeValue<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
@@ -653,8 +653,6 @@ const ProTable = <T extends {}, U extends object>(
   const action = useFetchData(
     async ({ pageSize, current }) => {
       if(!request) {
-        console.log("action => props.dataSource ", props.dataSource);
-        
         return {
           data: props.dataSource || [],
           success: true,
@@ -1083,7 +1081,6 @@ const ProTable = <T extends {}, U extends object>(
               ) => {
                 if(rest.onChange) {
                   rest.onChange(changePagination, filters, sorter, extra);
-                  console.log('changePagination', changePagination);
                 }
 
                 // 制造筛选的数据
