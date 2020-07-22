@@ -620,8 +620,7 @@ const ProTable = <T extends {}, U extends object>(
     columnEmptyText = '-',
     ...rest
   } = props;
-
-  // console.log('Table -> rest', rest);
+  
   const [selectedRowKeys, setSelectedRowKeys] = useMergeValue<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
