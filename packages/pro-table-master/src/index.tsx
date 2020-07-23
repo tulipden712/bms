@@ -3,7 +3,6 @@ import IndexColumn from './component/indexColumn';
 import { RequestData } from './useFetchData';
 import TableDropdown from './component/dropdown';
 import TableStatus from './component/status';
-import { FormInputRender } from './advancedForm';
 import {
   IntlProvider,
   IntlConsumer,
@@ -19,7 +18,7 @@ import {
   msMYIntl,
   zhTWIntl,
 } from './component/intlContext';
-import Search from './form';
+import Search, { FormInputRender } from './form';
 import defaultRenderText, { ProColumnsValueType } from './defaultRender';
 
 export type {
