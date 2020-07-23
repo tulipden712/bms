@@ -3,6 +3,7 @@ import IndexColumn from './component/indexColumn';
 import { RequestData } from './useFetchData';
 import TableDropdown from './component/dropdown';
 import TableStatus from './component/status';
+import { FormInputRender } from './advancedForm';
 import {
   IntlProvider,
   IntlConsumer,
@@ -49,6 +50,7 @@ export {
   ruRUIntl,
   msMYIntl,
   zhTWIntl,
+  FormInputRender
 };
 
 export default ProTable;

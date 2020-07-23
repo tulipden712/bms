@@ -54,21 +54,21 @@ pro-table 在 antd 的 table 上进行了一层封装，支持了一些预设，
 
 ## Columns
 
-| 属性 | 描述 | 类型 | 默认值 |
+| Tài sản | Mô tả | Loại | Giá trị mặc định |
 | --- | --- | --- | --- |
-| renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => string` | - |
-| render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: React.ReactNode,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => React.ReactNode \| React.ReactNode[]` | - |
-| renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => React.ReactNode` | - |
-| ellipsis | 是否自动缩略 | boolean | - |
-| copyable | 是否支持复制 | boolean | - |
-| valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](#valueEnum) | - |
-| valueType | 值的类型 | `'money' \| 'option' \| 'date' \| 'dateTime' \| 'time' \| 'text'\| 'index' \| 'indexBorder'` | 'text' |
-| hideInSearch | 在查询表单中不展示此项 | boolean | - |
-| hideInTable | 在 Table 中不展示此列 | boolean | - |
-| hideInForm | 在 Form 模式下 中不展示此列 | boolean | - |
-| filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean \| object[]` | false |
-| order | 决定在 查询表单中的顺序，越大越在前面 | number | - |
-| formItemProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
+| renderText | [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => string` | - |
+| render | | `(text: React.ReactNode,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => React.ReactNode \| React.ReactNode[]` | - |
+| renderFormItem | | `(item,props:{value,onChange}) => React.ReactNode` | - |
+| ellipsis | tự động thu nhỏ| boolean | - |
+| copyable | cho phép copy | boolean | - |
+| valueEnum | liệt kê giá trị tự động chuyển đổi giá trị theo key để truy xuất nội dung sẽ được hiển thị | [valueEnum](#valueEnum) | - |
+| valueType | | `'money' \| 'option' \| 'date' \| 'dateTime' \| 'time' \| 'text'\| 'index' \| 'indexBorder'` | 'text' |
+| hideInSearch | | boolean | - |
+| hideInTable |  | boolean | - |
+| hideInForm | ẩn Form tìm kiếm | boolean | - |
+| filters |  true sẽ lấy filter dựa trên valueEnum được cung cấp | `boolean \| object[]` | false |
+| order | thứ tự xuất hiện | number | - |
+| formItemProps | custom formItem | `{ [prop: string]: any }` | - |
 
 ### ActionType
 
