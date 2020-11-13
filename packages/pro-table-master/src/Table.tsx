@@ -67,6 +67,7 @@ export type ValueEnumMap = Map<
   | {
     text: ReactNode;
     status: StatusType;
+    isText: boolean
   }
   | ReactNode
 >;
@@ -620,7 +621,7 @@ const ProTable = <T extends {}, U extends object>(
     columnEmptyText = '-',
     ...rest
   } = props;
-  
+
   const [selectedRowKeys, setSelectedRowKeys] = useMergeValue<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
@@ -932,7 +933,7 @@ const ProTable = <T extends {}, U extends object>(
       </Card>
     );
   }
-
+  
   const className = classNames(defaultClassName, propsClassName);
   return (
     <ConfigProvider

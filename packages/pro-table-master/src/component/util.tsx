@@ -24,6 +24,7 @@ export const parsingText = (text: string | number, valueEnum?: ValueEnumMap, pur
   const domText = (valueEnum.get(text) || valueEnum.get(`${text}`)) as {
     text: ReactNode;
     status: StatusType;
+    isText: boolean
   };
   if (domText.status) {
     if (pure) {
@@ -32,7 +33,9 @@ export const parsingText = (text: string | number, valueEnum?: ValueEnumMap, pur
     const { status } = domText;
     const Status = TableStatus[status || 'Init'];
     if (Status) {
-      return <Status>{domText.text}</Status>;
+      if(domText.isText)
+        return <Status>{domText.text}</Status>;
+      return <Status />
     }
   }
   return domText.text || domText;
