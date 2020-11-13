@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import React, { ReactNode, useEffect, useRef, ReactText, DependencyList, useCallback } from 'react';
+import { Tooltip } from 'antd';
 import isEqual from 'lodash.isequal';
 import { DataIndex } from 'rc-table/lib/interface';
 import TableStatus, { StatusType } from './status';
@@ -35,7 +36,7 @@ export const parsingText = (text: string | number, valueEnum?: ValueEnumMap, pur
     if (Status) {
       if(domText.isText)
         return <Status>{domText.text}</Status>;
-      return <Status />
+      return <Tooltip title={domText.text}><Status /></Tooltip>
     }
   }
   return domText.text || domText;
