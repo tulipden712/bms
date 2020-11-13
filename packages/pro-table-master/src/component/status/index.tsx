@@ -1,10 +1,12 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
 import { Badge } from 'antd';
 import './index.less';
 
 interface StatusProps {
   className?: string;
   style?: CSSProperties;
+  title?: ReactNode;
+  color?: ReactNode;
 }
 
 /**
@@ -16,12 +18,14 @@ const Status: {
   Processing: React.FC<StatusProps>;
   Default: React.FC<StatusProps>;
   Warning: React.FC<StatusProps>;
+  Custom: React.FC<StatusProps>;
 } = {
-  Success: ({ children }) => <Badge status="success" text={children} />,
-  Error: ({ children }) => <Badge status="error" text={children} />,
-  Default: ({ children }) => <Badge status="default" text={children} />,
-  Processing: ({ children }) => <Badge status="processing" text={children} />,
-  Warning: ({ children }) => <Badge status="warning" text={children} />,
+  Success: ({ children, title }) => <Badge status="success" title={title} text={children} />,
+  Error: ({ children, title }) => <Badge status="error" title={title} text={children} />,
+  Default: ({ children, title }) => <Badge status="default" title={title} text={children} />,
+  Processing: ({ children, title }) => <Badge status="processing" title={title} text={children} />,
+  Warning: ({ children, title }) => <Badge status="warning" title={title} text={children} />,
+  Custom: ({ children, title, color }) => <Badge color={color} title={title} text={children} />,
 };
 
 export type StatusType = keyof typeof Status;
