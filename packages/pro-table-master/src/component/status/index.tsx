@@ -20,12 +20,12 @@ const Status: {
   Warning: React.FC<StatusProps>;
   Custom: React.FC<StatusProps>;
 } = {
-  Success: ({ children, title }) => <Badge status="success" title={title} text={children} />,
-  Error: ({ children, title }) => <Badge status="error" title={title} text={children} />,
-  Default: ({ children, title }) => <Badge status="default" title={title} text={children} />,
-  Processing: ({ children, title }) => <Badge status="processing" title={title} text={children} />,
-  Warning: ({ children, title }) => <Badge status="warning" title={title} text={children} />,
-  Custom: ({ children, title, color }) => <Badge color={color} title={title} text={children} />,
+  Success: ({ children, title }) => <Badge status="success" title={title as string} text={children} />,
+  Error: ({ children, title }) => <Badge status="error" title={title as string} text={children} />,
+  Default: ({ children, title }) => <Badge status="default" title={title as string} text={children} />,
+  Processing: ({ children, title }) => <Badge status="processing" title={title as string} text={children} />,
+  Warning: ({ children, title }) => <Badge status="warning" title={title as string} text={children} />,
+  Custom: ({ children, title, color }) => <Badge color={color as string} title={title as string} text={children} />,
 };
 
 export type StatusType = keyof typeof Status;
