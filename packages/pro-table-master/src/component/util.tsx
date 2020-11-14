@@ -37,7 +37,7 @@ export const parsingText = (text: string | number, valueEnum?: ValueEnumMap, pur
       if(domText.isText)
         return <Status>{domText.text}</Status>;
       // return <Tooltip title={domText.text}><span><Status /></span></Tooltip>
-      return <span><Status /></span>
+      return <Status><span /></Status>
     }
   }
   return domText.text || domText;
