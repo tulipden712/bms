@@ -45,3 +45,4 @@ example/.temp/*
 .eslintcache
 lib/**
 es/**
+packages/mpoint-admin
