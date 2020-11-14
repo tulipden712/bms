@@ -36,7 +36,7 @@ export const parsingText = (text: string | number, valueEnum?: ValueEnumMap, pur
     if (Status) {
       if(domText.isText)
         return <Status>{domText.text}</Status>;
-      return <Tooltip title={domText.text}><Status title={domText.text} /></Tooltip>
+      return <Tooltip title={domText.text}><span><Status title={domText.text} /></span></Tooltip>
     }
   }
   return domText.text || domText;

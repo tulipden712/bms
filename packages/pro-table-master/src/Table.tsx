@@ -2,7 +2,8 @@
 import './index.less';
 
 import React, { useEffect, CSSProperties, useRef, useState, ReactNode } from 'react';
-import { Table, ConfigProvider, Card, Space, Typography, Empty, Tooltip } from 'antd';
+import { Table, ConfigProvider, Card, Space, Typography, Empty, Tooltip, Badge } from 'antd';
+// import { RocketOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import useMergeValue from 'use-merge-value';
 import { stringify } from 'use-json-comparison';
@@ -460,7 +461,6 @@ const columnRender = <T, U = any>({
     row,
     columnEmptyText,
   );
-
   const dom: React.ReactNode = genEllipsis(
     genCopyable(textDom, item),
     item,
@@ -933,7 +933,7 @@ const ProTable = <T extends {}, U extends object>(
       </Card>
     );
   }
-  
+
   const className = classNames(defaultClassName, propsClassName);
   return (
     <ConfigProvider
@@ -1018,7 +1018,19 @@ const ProTable = <T extends {}, U extends object>(
               // if options= false & headerTitle=== false, hide Toolbar
               <Toolbar<T>
                 options={options}
-                headerTitle={headerTitle}
+                // headerTitle={`${headerTitle} ${propsPagination && propsPagination.total ? `(${propsPagination.total} bản ghi)` : "0 bản ghi"}`}
+                headerTitle={<><Badge
+                  showZero
+                  offset={[15, -5]}
+                  overflowCount={1000000000}
+                  count={propsPagination && propsPagination.total ? propsPagination.total : 0}
+                  // count={<>
+                  //   <span style={{ color: '#f5222d' }}>{propsPagination && propsPagination.total ? propsPagination.total : 0}</span>
+                  //   <RocketOutlined style={{ color: '#f5222d' }} />
+                  // </>}
+                >
+                  <span>{headerTitle}</span>
+                </Badge></>}
                 action={action}
                 onSearch={(keyword) => {
                   if(options && options.search) {

@@ -10,7 +10,7 @@ export default {
     selectPlaceholder: 'Vui lòng chọn',
   },
   alert: {
-    clear: 'Xóa',
+    clear: 'Bỏ chọn',
     selected: 'đã chọn',
     item: 'mục',
   },
