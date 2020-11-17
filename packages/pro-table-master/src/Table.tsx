@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import './index.less';
 
@@ -324,7 +325,20 @@ export interface ProTableProps<T, U extends { [key: string]: any }>
    * 空值时显示
    */
   columnEmptyText?: ColumnEmptyText;
+
+  scrollTop?: boolean;
 }
+
+interface IProps {
+  children: ReactNode;
+}
+const refTable = React.createRef<HTMLTableElement>();
+const WrapperTableComponent = ({
+  children,
+  ...restProps
+}: IProps): any => (
+    <table id="mywrapper" {...restProps} ref={refTable}>{children}</table>
+  );
 
 const mergePagination = <T extends any[], U>(
   pagination: TablePaginationConfig | boolean | undefined = {},
@@ -619,9 +633,15 @@ const ProTable = <T extends {}, U extends object>(
     type = 'table',
     onReset = () => { },
     columnEmptyText = '-',
+    components: customComponents = {},
+    scrollTop = false,
     ...rest
   } = props;
 
+  const refScroll = useRef<HTMLDivElement>(null);
+  const components = Object.assign(customComponents, {
+    table: WrapperTableComponent,
+  })
   const [selectedRowKeys, setSelectedRowKeys] = useMergeValue<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
@@ -683,6 +703,57 @@ const ProTable = <T extends {}, U extends object>(
       effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
     },
   );
+
+  // @ts-ignore
+  useEffect(() => {
+    if(scrollTop) {
+      const scrollHeight = '14px';
+      const outerDiv = refScroll.current as any;
+      let childWrapper: any;
+      if(refTable.current) {
+        childWrapper = refTable.current.parentElement;
+
+        outerDiv.firstElementChild.style.width = `${refTable.current.offsetWidth}px`;
+        outerDiv.firstElementChild.style.height = scrollHeight;
+
+        outerDiv.onscroll = function () {
+          childWrapper.scrollLeft = outerDiv.scrollLeft;
+        };
+
+        childWrapper.onscroll = function () {
+          outerDiv.scrollLeft = childWrapper.scrollLeft;
+        };
+
+        const handleScroll = function () {
+          const scrollPhone = window.scrollY;
+          // console.log('scrollPhone', scrollPhone);
+          if(scrollPhone > 20) {
+            outerDiv.style.width = `${childWrapper.offsetWidth}px`;
+            // outerDiv.style.position = 'fixed';
+            // outerDiv.style.top = 0;
+            // outerDiv.style.left = 250;
+            // outerDiv.style.zIndex = '400';
+            outerDiv.style.overflow = 'auto hidden';
+            outerDiv.style.height = scrollHeight;
+            outerDiv.style.visibility = 'visible';
+          } else {
+            outerDiv.style.width = `${childWrapper.offsetWidth}px`;
+            // outerDiv.style.position = 'relative';
+            // outerDiv.style.top = 'inherit';
+            // outerDiv.style.left = 'inherit';
+            outerDiv.style.overflow = 'auto hidden';
+            outerDiv.style.height = scrollHeight;
+            outerDiv.style.visibility = 'visible';
+          }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return function cleanup() {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }
+    }
+  });
 
   useEffect(() => {
     fullScreen.current = () => {
@@ -1024,10 +1095,10 @@ const ProTable = <T extends {}, U extends object>(
                   offset={[15, -5]}
                   overflowCount={1000000000}
                   count={propsPagination && propsPagination.total ? propsPagination.total : 0}
-                  // count={<>
-                  //   <span style={{ color: '#f5222d' }}>{propsPagination && propsPagination.total ? propsPagination.total : 0}</span>
-                  //   <RocketOutlined style={{ color: '#f5222d' }} />
-                  // </>}
+                // count={<>
+                //   <span style={{ color: '#f5222d' }}>{propsPagination && propsPagination.total ? propsPagination.total : 0}</span>
+                //   <RocketOutlined style={{ color: '#f5222d' }} />
+                // </>}
                 >
                   <span>{headerTitle}</span>
                 </Badge></>}
@@ -1061,9 +1132,12 @@ const ProTable = <T extends {}, U extends object>(
                 needTotalList={needTotalList}
               />
             )}
-
+            <div ref={refScroll} id="wrapper1" className="wrapper1">
+              <div className="div1" />
+            </div>
             <Table<T>
               {...rest}
+              components={components}
               size={counter.tableSize}
               rowSelection={propsRowSelection === false ? undefined : rowSelection}
               className={tableClassName}
