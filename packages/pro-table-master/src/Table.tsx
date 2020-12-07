@@ -709,7 +709,8 @@ const ProTable = <T extends {}, U extends object>(
     if(scrollTop) {
       const scrollHeight = '14px';
       let childWrapper: any;
-      if(refTable.current) {
+      if(refTable.current && refScroll.current) {
+        
         const outerDiv = refScroll.current as any;
         childWrapper = refTable.current.parentElement;
 
@@ -1132,7 +1133,7 @@ const ProTable = <T extends {}, U extends object>(
                 needTotalList={needTotalList}
               />
             )}
-            <div ref={refScroll} id="wrapper1" className="wrapper1">
+            <div ref={refScroll} className="wrapper1">
               <div className="div1" />
             </div>
             <Table<T>
