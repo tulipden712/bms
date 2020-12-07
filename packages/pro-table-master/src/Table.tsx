@@ -1133,9 +1133,9 @@ const ProTable = <T extends {}, U extends object>(
                 needTotalList={needTotalList}
               />
             )}
-            <div ref={refScroll} className="wrapper1">
+            {scrollTop && <div ref={refScroll} className="wrapper1">
               <div className="div1" />
-            </div>
+            </div>}
             <Table<T>
               {...rest}
               components={components}
