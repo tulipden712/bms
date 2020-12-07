@@ -708,9 +708,9 @@ const ProTable = <T extends {}, U extends object>(
   useEffect(() => {
     if(scrollTop) {
       const scrollHeight = '14px';
-      const outerDiv = refScroll.current as any;
       let childWrapper: any;
       if(refTable.current) {
+        const outerDiv = refScroll.current as any;
         childWrapper = refTable.current.parentElement;
 
         outerDiv.firstElementChild.style.width = `${refTable.current.offsetWidth}px`;
