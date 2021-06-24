@@ -55,7 +55,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
     "@umijs/route-utils": "^1.0.5",
-    "antd": "^4.2.0",
+    "antd": "4.8.4",
     "classnames": "^2.2.6",
     "hash.js": "^1.1.7",
     "history": "^4.10.1",

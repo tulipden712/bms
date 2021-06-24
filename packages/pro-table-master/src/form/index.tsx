@@ -389,11 +389,11 @@ export const proFormItemRender: (props: {
     return rest.title;
   };
   return (
-    <Col {...colConfig} key={key}>
+    <Col {...colConfig} key={key as any}>
       <Form.Item
         labelAlign="right"
         label={getTitle()}
-        name={Array.isArray(dataIndex) ? dataIndex : key}
+        name={(Array.isArray(dataIndex) ? dataIndex : key) as any}
         {...(isForm && rest)}
       >
         {dom}
@@ -648,7 +648,7 @@ const FormSearch = <T, U = {}>({
   useDeepCompareEffect(() => {
     const tempMap = {};
     counter.proColumns.forEach((item) => {
-      tempMap[genColumnKey(item.key, item.dataIndex, item.index) || 'null'] = item;
+      tempMap[(genColumnKey(item.key, item.dataIndex, item.index) || 'null') as any] = item;
     });
     setProColumnsMap(tempMap);
   }, [counter.proColumns]);
@@ -688,7 +688,7 @@ const FormSearch = <T, U = {}>({
   const colConfig = typeof span === 'number' ? { span } : span;
 
   // 这么做是为了在用户修改了输入的时候触发一下子节点的render
-  const [, updateState] = React.useState();
+  const [, updateState] = React.useState<any>();
   const forceUpdate = useCallback(() => updateState({}), []);
 
   const domList = formInstanceRef.current
@@ -744,7 +744,7 @@ const FormSearch = <T, U = {}>({
                       if (item.initialValue) {
                         return {
                           ...pre,
-                          [key]: item.initialValue,
+                          [key as any]: item.initialValue,
                         };
                       }
                       return pre;

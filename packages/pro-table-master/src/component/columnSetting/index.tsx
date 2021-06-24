@@ -144,14 +144,14 @@ const CheckboxList: React.FC<{
       <DnDItem
         index={index}
         id={`${columnKey}_${rest.index}`}
-        key={columnKey}
+        key={columnKey as any}
         end={(id, targetIndex) => {
           move(id, targetIndex);
         }}
       >
         <CheckboxListItem
           setColumnsMap={setColumnsMap}
-          columnKey={columnKey || `${index}`}
+          columnKey={(columnKey || `${index}`) as any}
           columnsMap={columnsMap}
           title={title}
           fixed={fixed}
@@ -230,7 +230,7 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
     localColumns.forEach(({ key, fixed, dataIndex, index }) => {
       const columnKey = genColumnKey(key, dataIndex, index);
       if (columnKey) {
-        columnKeyMap[columnKey] = {
+        columnKeyMap[columnKey as any] = {
           show,
           fixed,
         };

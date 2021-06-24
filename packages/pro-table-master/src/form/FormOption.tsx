@@ -42,6 +42,7 @@ const FormOption: React.FC<FormOptionProps> = (props) => {
     <Space>
       <Button
         onClick={() => {
+          console.log('ra nao')
           form.resetFields();
           onReset();
           if (!isForm) {

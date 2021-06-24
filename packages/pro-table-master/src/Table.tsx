@@ -529,10 +529,10 @@ const genColumnList = <T, U = {}>(
     .map((item, columnsIndex) => {
       const { key, dataIndex, filters = [] } = item;
       const columnKey = genColumnKey(key, dataIndex, columnsIndex);
-      const config = columnKey ? map[columnKey] || { fixed: item.fixed } : { fixed: item.fixed };
+      const config = columnKey ? map[columnKey as any] || { fixed: item.fixed } : { fixed: item.fixed };
       const tempColumns = {
         onFilter: (value: string, record: T) => {
-          let recordElement = get(record, item.dataIndex || '');
+          let recordElement = get(record, (item.dataIndex || '') as any);
           if(typeof recordElement === 'number') {
             recordElement = recordElement.toString();
           }
@@ -563,7 +563,7 @@ const genColumnList = <T, U = {}>(
         delete tempColumns.dataIndex;
       }
       if(!tempColumns.filters || !tempColumns.filters.length) {
-        delete tempColumns.filters;
+        delete tempColumns?.filters;
       }
       return tempColumns;
     })
@@ -637,7 +637,6 @@ const ProTable = <T extends {}, U extends object>(
     scrollTop = false,
     ...rest
   } = props;
-
   const refScroll = useRef<HTMLDivElement>(null);
   const components = Object.assign(customComponents, {
     table: WrapperTableComponent,
@@ -789,7 +788,7 @@ const ProTable = <T extends {}, U extends object>(
   useEffect(() => {
     // 数据源更新时 取消所有选中项
     // onCleanSelected();
-    setDataSource(request ? (action.dataSource as T[]) : props.dataSource || []);
+    setDataSource(request ? (action.dataSource as T[]) :( props.dataSource || []) as T[]);
   }, [props.dataSource, action.dataSource]);
 
   /**
@@ -1149,7 +1148,7 @@ const ProTable = <T extends {}, U extends object>(
                 if(!columnKey) {
                   return true;
                 }
-                const config = counter.columnsMap[columnKey];
+                const config = counter.columnsMap[columnKey as any];
                 if(config && config.show === false) {
                   return false;
                 }
@@ -1161,7 +1160,8 @@ const ProTable = <T extends {}, U extends object>(
               onChange={(
                 changePagination: TablePaginationConfig,
                 filters: {
-                  [string: string]: React.ReactText[] | null;
+                  // [string: string]: React.ReactText[] | null;
+                  [string: string]: any;
                 },
                 sorter: SorterResult<T> | SorterResult<T>[],
                 extra: TableCurrentDataSource<T>,
